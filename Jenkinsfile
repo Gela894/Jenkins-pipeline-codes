@@ -20,11 +20,11 @@ pipeline {
                 docker login --username AWS \
                 --password-stdin $ECR_REPO
                 '''
-                sh 'docker build -t jenkins-repo:latest .'
-                sh 'docker build -t imageversion:latest .'
-                sh 'docker tag jenkins-repo:latest $ECR_REPO/jenkins-repo:latest'
-                sh 'docker tag imageversion:latest $ECR_REPO/jenkins-repo:v.$BUILD_NUMBER'
-                sh 'docker push $ECR_REPO/jenkins-repo:latest'
+                sh 'docker build -t jenkins-repo:latest2 .'
+                sh 'docker build -t imageversion:latest2 .'
+                sh 'docker tag jenkins-repo:latest2 $ECR_REPO/jenkins-repo:latest2'
+                sh 'docker tag imageversion:latest2 $ECR_REPO/jenkins-repo:v.$BUILD_NUMBER'
+                sh 'docker push $ECR_REPO/jenkins-repo:latest2'
                 sh 'docker push $ECR_REPO/jenkins-repo:v.$BUILD_NUMBER'
             }
         }
